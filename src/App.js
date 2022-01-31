@@ -1,34 +1,16 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCountries, removeAllCountries } from './redux/countries/countries';
 
 const App = () => {
-  const [countries, setCountries] = useState([]);
-  useEffect(async () => {
-    const covidResponse = await axios.get('https://api.covid19tracking.narrativa.com/api/countries');
-    const countriesResponse = await axios.get('https://restcountries.com/v3.1/all');
-    setCountries(covidResponse.data.countries.map(({ id, name }) => {
-      const country = countriesResponse.data.filter((country) => (
-        country.name.common === name
-        || (country.altSpellings && country.altSpellings.includes(name))
-      ))[0];
-      if (country) {
-        return {
-          id,
-          name,
-          flag: country.flag,
-          flagSVG: country.flags.svg,
-          continent: country.continents[0],
-        };
-      }
-      return undefined;
-      // console.log(name);
-      // return {
-      //   id,
-      //   name,
-      // };
-    }).filter((country) => country !== undefined));
-  }, []);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCountries());
+    return () => {
+      dispatch(removeAllCountries());
+    };
+  }, [dispatch]);
+  const countries = useSelector((state) => state.countriesReducer.africa);
   return (
     <div>
       {countries.map(({
