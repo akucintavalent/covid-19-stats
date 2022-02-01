@@ -1,11 +1,21 @@
+/* eslint-disable camelcase */
 import { useSelector } from 'react-redux';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Country from '../country/Country';
 
 const Continent = (props) => {
-  const { continent } = props;
-  const countries = useSelector((state) => state.countriesReducer[continent.url]);
+  const { continent, pic } = props;
+  const countries = useSelector((state) => (
+    Object.values(state.countriesReducer[continent.url].countries)));
+  const today_confirmed = useSelector((state) => (
+    state.countriesReducer[continent.url].today_confirmed));
+  const today_new_deaths = useSelector((state) => (
+    state.countriesReducer[continent.url].today_new_deaths));
+  const today_new_recovered = useSelector((state) => (
+    state.countriesReducer[continent.url].today_new_recovered));
+  const today_recovered = useSelector((state) => (
+    state.countriesReducer[continent.url].today_recovered));
   return (
     <Routes>
       <Route
@@ -13,16 +23,40 @@ const Continent = (props) => {
         element={(
           <div>
             <div style={{
+              display: 'flex',
               height: '50vw',
               border: '1px solid black',
             }}
             >
-              <p>{continent.name}</p>
+              <div>
+                {continent.name}
+                <br />
+                covid-19 stats for yesterday
+                <p>
+                  confirmed:
+                  {today_confirmed}
+                </p>
+                <p>
+                  new deaths:
+                  {today_new_deaths}
+                </p>
+                <p>
+                  new recovered:
+                  {today_new_recovered}
+                </p>
+                <p>
+                  recovered:
+                  {today_recovered}
+                </p>
+              </div>
+              <img src={pic} alt={continent.name} style={{ width: '40vw', height: '40vw' }} />
             </div>
+            <div>STATS BY COUNTRY</div>
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
+                display: 'flex',
+                flexDirection: 'column',
+                // gridTemplateColumns: '1fr 1fr',
               }}
             >
               {countries.map((country) => (
@@ -30,12 +64,32 @@ const Continent = (props) => {
                   to={country.id}
                   key={country.id}
                   style={{
-                    height: '50vw',
+                    display: 'flex',
+                    height: '35vw',
                     border: '1px solid black',
                     textDecoration: 'none',
                   }}
                 >
-                  <p key={country.id}>{country.name + country.flag}</p>
+                  <img style={{ maxWidth: '50%', height: 'auto' }} src={country.flagSVG} alt={`flag of ${country.name}`} />
+                  <div>
+                    <p key={country.id}>{country.name + country.flag}</p>
+                    <p>
+                      confirmed:
+                      {country.today_confirmed}
+                    </p>
+                    <p>
+                      new deaths:
+                      {country.today_new_deaths}
+                    </p>
+                    <p>
+                      new recovered:
+                      {country.today_new_recovered}
+                    </p>
+                    <p>
+                      recovered:
+                      {country.today_recovered}
+                    </p>
+                  </div>
                 </NavLink>
               ))}
             </div>
@@ -50,6 +104,7 @@ const Continent = (props) => {
 Continent.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   continent: PropTypes.object.isRequired,
+  pic: PropTypes.string.isRequired,
 };
 
 export default Continent;
