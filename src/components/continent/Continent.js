@@ -47,26 +47,16 @@ const Continent = (props) => {
               <img src={pic} alt={continent.name} className="header-image" />
             </div>
             <div className="stats">STATS BY COUNTRY</div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
+            <div className="country-items">
               {countries.map((country) => (
                 <NavLink
                   to={country.id}
                   key={country.id}
-                  style={{
-                    display: 'flex',
-                    height: '35vw',
-                    border: '1px solid black',
-                    textDecoration: 'none',
-                  }}
+                  className="country-item"
                 >
-                  <img style={{ maxWidth: '50%', height: 'auto' }} src={country.flagSVG} alt={`flag of ${country.name}`} />
+                  <img className="flag" src={country.flagSVG} alt={`flag of ${country.name}`} />
                   <div>
-                    <p key={country.id}>{country.name + country.flag}</p>
+                    <p className="title">{country.name + country.flag}</p>
                     <p>
                       confirmed:
                       {country.today_confirmed}

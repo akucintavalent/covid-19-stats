@@ -10,17 +10,12 @@ const Country = () => {
   const regions = Object.values(country.regions);
   return (
     <div>
-      <div style={{
-        display: 'flex',
-        height: '40vw',
-        border: '1px solid black',
-      }}
-      >
-        <img style={{ maxWidth: '50%', height: 'auto' }} src={country.flagSVG} alt={`flag of ${country.name}`} />
+      <div className="country-header">
+        <img className="flag" src={country.flagSVG} alt={`flag of ${country.name}`} />
         <div>
-          {country.name}
+          <p className="title">{country.name}</p>
+          <p>covid-19 stats for yesterday</p>
           <br />
-          covid-19 stats for yesterday
           <p>
             confirmed:
             {country.today_confirmed}
@@ -39,25 +34,13 @@ const Country = () => {
           </p>
         </div>
       </div>
-      <div>STATS BY REGION</div>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-        }}
-      >
+      <div className="stats">STATS BY REGION</div>
+      <div className="items">
         {regions.length === 0
-          ? (<div style={{ gridColumn: '1 / 3' }}>NO REGIONS AVAILABLE</div>)
+          ? (<div className="no-regions">NO REGIONS AVAILABLE</div>)
           : regions.map((region) => (
-            <div
-              key={region.name}
-              style={{
-                height: '50vw',
-                border: '1px solid black',
-                textDecoration: 'none',
-              }}
-            >
-              <p>
+            <div key={region.name} className="item">
+              <p className="title">
                 {region.name}
               </p>
               <p>
