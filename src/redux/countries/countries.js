@@ -4,7 +4,7 @@ import axios from 'axios';
 const ADD_COUNTRY = 'covid-19-stats/countries/ADD_COUNTRY';
 const REMOVE_ALL_COUNTRIES = 'covid-19-stats/countries/REMOVE_ALL_COUNTRIES';
 
-const initialState = {
+export const initialState = {
   today_confirmed: 0,
   today_new_deaths: 0,
   today_new_recovered: 0,
