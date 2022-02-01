@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Back from '../back/Back';
 
 const Country = () => {
   const { country: countryName } = useParams();
@@ -10,6 +11,7 @@ const Country = () => {
   const regions = Object.values(country.regions);
   return (
     <div>
+      <Back />
       <div className="country-header">
         <img className="flag" src={country.flagSVG} alt={`flag of ${country.name}`} />
         <div>

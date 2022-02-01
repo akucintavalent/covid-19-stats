@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Country from '../country/Country';
+import Back from '../back/Back';
 
 const Continent = (props) => {
   const { continent, pic } = props;
@@ -22,6 +23,7 @@ const Continent = (props) => {
         index
         element={(
           <div>
+            <Back />
             <div className="top-header">
               <div>
                 <p className="title">{continent.name}</p>

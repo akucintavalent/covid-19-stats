@@ -2,12 +2,14 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import earth from '../../pics/earth.png';
+import Back from '../back/Back';
 
 const Earth = (props) => {
   const { continents, pics } = props;
   const countriesState = useSelector((state) => state.countriesReducer);
   return (
     <div>
+      <Back />
       <div className="top-header">
         <img className="header-image" src={earth} alt="Earth" />
         <div>
