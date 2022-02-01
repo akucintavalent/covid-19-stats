@@ -2,12 +2,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 const Earth = (props) => {
-  const { urlContinents } = props;
-  const continents = urlContinents
-    .map((continent) => ({
-      name: continent.replaceAll('_', ' ').toUpperCase(),
-      url: continent,
-    }));
+  const { continents } = props;
   return (
     <div>
       <div style={{
@@ -19,7 +14,7 @@ const Earth = (props) => {
       </div>
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'auto auto',
+        gridTemplateColumns: '1fr 1fr',
       }}
       >
         {continents.map((continent) => (
@@ -44,7 +39,7 @@ const Earth = (props) => {
 
 Earth.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  urlContinents: PropTypes.array.isRequired,
+  continents: PropTypes.array.isRequired,
 };
 
 export default Earth;
