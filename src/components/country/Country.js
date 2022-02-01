@@ -82,8 +82,5 @@ const Country = () => {
     </div>
   );
 };
-// today_confirmed: 0,
-// today_new_deaths: 0,
-// today_new_recovered: 0,
-// today_recovered: 0,
+
 export default Country;

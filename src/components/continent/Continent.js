@@ -22,16 +22,11 @@ const Continent = (props) => {
         index
         element={(
           <div>
-            <div style={{
-              display: 'flex',
-              height: '50vw',
-              border: '1px solid black',
-            }}
-            >
+            <div className="top-header">
               <div>
-                {continent.name}
+                <p className="title">{continent.name}</p>
+                <p>covid-19 stats for yesterday</p>
                 <br />
-                covid-19 stats for yesterday
                 <p>
                   confirmed:
                   {today_confirmed}
@@ -49,14 +44,13 @@ const Continent = (props) => {
                   {today_recovered}
                 </p>
               </div>
-              <img src={pic} alt={continent.name} style={{ width: '40vw', height: '40vw' }} />
+              <img src={pic} alt={continent.name} className="header-image" />
             </div>
-            <div>STATS BY COUNTRY</div>
+            <div className="stats">STATS BY COUNTRY</div>
             <div
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                // gridTemplateColumns: '1fr 1fr',
               }}
             >
               {countries.map((country) => (

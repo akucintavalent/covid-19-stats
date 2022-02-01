@@ -8,17 +8,12 @@ const Earth = (props) => {
   const countriesState = useSelector((state) => state.countriesReducer);
   return (
     <div>
-      <div style={{
-        display: 'flex',
-        height: '50vw',
-        border: '1px solid black',
-      }}
-      >
-        <img style={{ width: '40vw', height: '40vw' }} src={earth} alt="Earth" />
+      <div className="top-header">
+        <img className="header-image" src={earth} alt="Earth" />
         <div>
-          EARTH
+          <p className="title">EARTH</p>
+          <p>covid-19 stats for yesterday</p>
           <br />
-          covid-19 stats for yesterday
           <p>
             confirmed:
             {countriesState.today_confirmed}
@@ -37,24 +32,16 @@ const Earth = (props) => {
           </p>
         </div>
       </div>
-      <div>STATS BY CONTINENT</div>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-      }}
-      >
+      <div className="stats">STATS BY CONTINENT</div>
+      <div className="items">
         {continents.map((continent) => (
           <NavLink
             to={continent.url}
             key={continent.url}
-            style={{
-              height: '50vw',
-              border: '1px solid black',
-              textDecoration: 'none',
-            }}
+            className="item"
           >
-            <img style={{ width: 'auto', height: '40%' }} src={pics[continent.url]} alt={continent.name} />
-            <p>
+            <img className="item-image" src={pics[continent.url]} alt={continent.name} />
+            <p className="title">
               {continent.name}
             </p>
             <p>
