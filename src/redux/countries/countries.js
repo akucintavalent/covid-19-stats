@@ -9,8 +9,8 @@ const initialState = {
   africa: [],
   // australia: [],
   asia: [],
-  'north america': [],
-  'south america': [],
+  north_america: [],
+  south_america: [],
   oceania: [],
 };
 
@@ -25,23 +25,26 @@ export const removeAllCountries = () => ({
 
 export const getCountries = () => (dispatch) => {
   (async () => {
-    const covidResponse = await axios.get('https://api.covid19tracking.narrativa.com/api/countries');
-    const countriesResponse = await axios.get('https://restcountries.com/v3.1/all');
-    covidResponse.data.countries.forEach(({ id, name }) => {
-      const country = countriesResponse.data.filter((country) => (
-        country.name.common === name
-        || (country.altSpellings && country.altSpellings.includes(name))
-      ))[0];
-      if (country) {
-        dispatch(addCountry({
-          id,
-          name,
-          flag: country.flag,
-          flagSVG: country.flags.svg,
-          continent: country.continents[0],
-        }));
-      }
-    });
+    try {
+      const covidResponse = await axios.get('https://api.covid19tracking.narrativa.com/api/countries');
+      const countriesResponse = await axios.get('https://restcountries.com/v3.1/all');
+      covidResponse.data.countries.forEach(({ id, name }) => {
+        const country = countriesResponse.data.filter((country) => (
+          country.name.common === name
+          || (country.altSpellings && country.altSpellings.includes(name))
+        ))[0];
+        if (country) {
+          dispatch(addCountry({
+            id,
+            name,
+            flag: country.flag,
+            flagSVG: country.flags.svg,
+            continent: country.continents[0],
+          }));
+        }
+      });
+    // eslint-disable-next-line no-empty
+    } catch (err) {}
   })();
 };
 
@@ -55,11 +58,11 @@ const reducer = (state = initialState, action) => {
         africa: [...state.africa],
         // australia: [...state.australia],
         asia: [...state.asia],
-        'north america': [...state['north america']],
-        'south america': [...state['south america']],
+        north_america: [...state.north_america],
+        south_america: [...state.south_america],
         oceania: [...state.oceania],
       };
-      result[action.payload.continent.toLowerCase()].push(action.payload);
+      result[action.payload.continent.replaceAll(' ', '_').toLowerCase()].push(action.payload);
       return result;
     case REMOVE_ALL_COUNTRIES:
       return initialState;
