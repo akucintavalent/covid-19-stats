@@ -2,6 +2,7 @@
 import { useSelector } from 'react-redux';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import Country from '../country/Country';
 import Back from '../back/Back';
 
@@ -17,6 +18,10 @@ const Continent = (props) => {
     state.countriesReducer[continent.url].today_new_recovered));
   const today_recovered = useSelector((state) => (
     state.countriesReducer[continent.url].today_recovered));
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Routes>
       <Route

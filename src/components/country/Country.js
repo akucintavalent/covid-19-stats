@@ -1,10 +1,15 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import Back from '../back/Back';
 
 const Country = () => {
   const { country: countryName } = useParams();
   const country = useSelector((state) => state.countriesReducer.countries[countryName]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (!country) {
     return <div>Ooops</div>;
   }

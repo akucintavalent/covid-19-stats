@@ -16,6 +16,7 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCountries());
+    window.scrollTo(0, 0);
     return () => {
       dispatch(removeAllCountries());
     };
