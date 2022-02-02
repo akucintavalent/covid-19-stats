@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Lato&family=Montserrat&family=Roboto+Slab:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Lato,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #5587e4;
+}
+
+code {
+  font-family:
+    Lato,
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
+}
+
+.stats {
+  background-color: #35538c;
+  color: white;
+  padding: 5px;
+}
+
+.top-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vw;
+  background-color: #5587e4;
+  color: white;
+}
+
+.header-image {
+  width: 40vw;
+  height: 40vw;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+  height: 50vw;
+  text-decoration: none;
+  color: white;
+  background-color: #3f62a4;
+}
+
+.item:nth-child(4n) {
+  background-color: #4268af;
+}
+
+.item:nth-child(4n+1) {
+  background-color: #4268af;
+}
+
+.item-image {
+  align-self: flex-end;
+  width: auto;
+  height: 40% !important;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.country-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.country-item {
+  padding: 3%;
+  display: flex;
+  gap: 5%;
+  min-height: 35vw;
+  max-height: 50vw;
+  text-decoration: none;
+  color: white;
+  background-color: #3f62a4;
+}
+
+.country-item:nth-child(even) {
+  background-color: #4268af;
+}
+
+.flag {
+  max-width: 50%;
+  height: auto;
+}
+
+.country-header {
+  display: flex;
+  padding: 3%;
+  gap: 5%;
+  height: 50vw;
+  justify-content: center;
+  align-items: center;
+  background-color: #5587e4;
+  color: white;
+}
+
+.no-regions {
+  grid-column: 1 / 3;
+  padding: 5%;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+@media (min-width: 425px) {
+  .items {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .item {
+    height: 33vw;
+  }
+
+  .header-image {
+    height: 20vw;
+    width: 20vw;
+  }
+
+  .top-header {
+    height: 20vw;
+  }
+
+  .item:nth-child(even) {
+    background-color: #4268af;
+  }
+
+  .item:nth-child(odd) {
+    background-color: #3f62a4;
+  }
+
+  .country-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .country-item {
+    min-height: 20vw;
+    max-height: 20vw;
+  }
+
+  .country-item:nth-child(4n) {
+    background-color: #4268af;
+  }
+
+  .country-item:nth-child(4n+1) {
+    background-color: #4268af;
+  }
+
+  .country-item:nth-child(4n+2) {
+    background-color: #3f62a4;
+  }
+
+  .country-item:nth-child(4n+3) {
+    background-color: #3f62a4;
+  }
+
+  .country-header {
+    height: 20vw;
+  }
+
+  .flag {
+    max-width: 55%;
+    width: auto;
+    height: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .items {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .item {
+    height: 25vw;
+  }
+
+  .country-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .country-item {
+    min-height: 15vw;
+    max-height: 15vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .items {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .item {
+    height: 20vw;
+  }
+}

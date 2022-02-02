@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`back button snapshot 1`] = `
+<div
+  className="stats"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  type="button"
+>
+     
+  <i
+    className="fas fa-chevron-left"
+  />
+     
+</div>
+`;

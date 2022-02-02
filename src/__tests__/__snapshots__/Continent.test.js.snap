@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`continent snapshot 1`] = `
+<div>
+  <div
+    className="stats"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    type="button"
+  >
+       
+    <i
+      className="fas fa-chevron-left"
+    />
+       
+  </div>
+  <div
+    className="top-header"
+  >
+    <div>
+      <p
+        className="title"
+      >
+        Asia
+      </p>
+      <p>
+        covid-19 stats for yesterday
+      </p>
+      <br />
+      <p>
+        confirmed:
+        0
+      </p>
+      <p>
+        new deaths:
+        0
+      </p>
+      <p>
+        new recovered:
+        0
+      </p>
+      <p>
+        recovered:
+        0
+      </p>
+    </div>
+    <img
+      alt="Asia"
+      className="header-image"
+      src=""
+    />
+  </div>
+  <div
+    className="stats"
+  >
+    STATS BY COUNTRY
+  </div>
+  <div
+    className="country-items"
+  />
+</div>
+`;

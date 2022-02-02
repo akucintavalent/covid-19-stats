@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`country snapshot 1`] = `
+<div>
+  <div
+    className="stats"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    type="button"
+  >
+       
+    <i
+      className="fas fa-chevron-left"
+    />
+       
+  </div>
+  <div
+    className="country-header"
+  >
+    <img
+      alt="flag of Ukraine"
+      className="flag"
+      src=""
+    />
+    <div>
+      <p
+        className="title"
+      >
+        Ukraine
+      </p>
+      <p>
+        covid-19 stats for yesterday
+      </p>
+      <br />
+      <p>
+        confirmed:
+        123
+      </p>
+      <p>
+        new deaths:
+        456
+      </p>
+      <p>
+        new recovered:
+        12304
+      </p>
+      <p>
+        recovered:
+        1238
+      </p>
+    </div>
+  </div>
+  <div
+    className="stats"
+  >
+    STATS BY REGION
+  </div>
+  <div
+    className="items"
+  >
+    <div
+      className="no-regions"
+    >
+      NO REGIONS AVAILABLE
+    </div>
+  </div>
+</div>
+`;
